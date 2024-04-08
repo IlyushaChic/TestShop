@@ -40,7 +40,7 @@ export const shoppingСartSlice = createSlice({
       })
       .addMatcher(productsApi.endpoints.getAllGoods.matchFulfilled, (state, action) => {
         const shoppingCarts: ShoppingCartItem[] = JSON.parse(localStorage.getItem('storeState'))
-        if (shoppingCarts.length > 0) {
+        if (shoppingCarts && shoppingCarts.length > 0) {
           state.shoppingСart = shoppingCarts;
         } else {
           state.shoppingСart = action.payload.map((element: BackendGoodsItem) =>
