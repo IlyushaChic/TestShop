@@ -1,7 +1,7 @@
 import { bindActionCreators, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { ShoppingState, BackendGoodsItem, ShoppingCartItem } from './sliceInterfaces';
-import { productsApi } from '../../services/products';
+import { productsApi } from '../../services/productsService';
 import { convertToShoppingCartItem } from '../../pages/productsPage/helpers';
 import { useAppDispatch } from '../hooks';
 
@@ -32,9 +32,6 @@ export const shoppingСartSlice = createSlice({
         state.shoppingСart[itemIndex].quantity += 1;
       }
     },
-    loadDataToStore: (state, action: PayloadAction<ShoppingCartItem[]>) => {
-      state.shoppingСart = action.payload;
-    }
   },
   extraReducers: (builder) => {
     builder

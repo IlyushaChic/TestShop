@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Layout } from 'antd';
-import { useGetAllGoodsByDealerIdQuery, useGetAllGoodsQuery } from './services/products';
+import { useGetAllGoodsByDealerIdQuery, useGetAllGoodsQuery } from './services/productsService';
 import Navigation from './components/Navigation';
 import Header from './components/Header/Header';
 import styles from './App.module.scss';
@@ -11,7 +11,7 @@ type InitialAppProps = {
 
 export const App = ({ dealers }: InitialAppProps) => {
   dealers.length === 0 ? useGetAllGoodsQuery({}) : useGetAllGoodsByDealerIdQuery(dealers.join(','));
-  console.log('render')
+
   return (
     <Layout>
       <Header />
