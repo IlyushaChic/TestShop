@@ -11,9 +11,6 @@ type InitialAppProps = {
 
 export const App = ({ dealers }: InitialAppProps) => {
   dealers.length === 0 ? useGetAllGoodsQuery({}) : useGetAllGoodsByDealerIdQuery(dealers.join(','));
-  window.onload = function () {
-    window.location.href = "/";
-  }
   return (
     <Layout>
       <Header />
